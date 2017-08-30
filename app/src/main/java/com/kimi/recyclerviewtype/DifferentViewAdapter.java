@@ -17,7 +17,6 @@ public class DifferentViewAdapter extends RecyclerView.Adapter<RecyclerView.View
     public static final int EVEN = 0;
 
 
-
     public class OddViewHolder extends RecyclerView.ViewHolder {
 
         public TextView oddTextView;
@@ -63,9 +62,12 @@ public class DifferentViewAdapter extends RecyclerView.Adapter<RecyclerView.View
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
 
         if (holder instanceof OddViewHolder) {
+            OddViewHolder oddViewHolder = (OddViewHolder) holder;
+            oddViewHolder.oddTextView.setText(String.format("我是第%s格位置的OddViewHolder.", ++position));
 
         } else if (holder instanceof EvenViewHolder) {
-
+            EvenViewHolder evenViewHolder = (EvenViewHolder) holder;
+            evenViewHolder.evenTextView.setText(String.format("我是第%s格位置的EddViewHolder.", ++position));
         }
 
     }
